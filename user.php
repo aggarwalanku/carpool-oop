@@ -74,5 +74,10 @@
 		public function logout(){
 			redirect('login.php');
 		}
+		public function getUserInformation( $UserId)
+		{
+			$db = new db;
+			$db.($UserId);
+		}
 	}
 ?>	
