@@ -59,11 +59,11 @@
 		public function setemailId( $emailId ){
 			$this->emailId = $emailId;
 		} 
-		private function decryptingUserPassword( $password = ''){
+		private function encryptingUserPassword( $password = ''){
 			return hash('sha256', $password);
 		}
 		public function login( $emailId = '' , $password = ''){
-			$password = decryptingUserPassword( $password );
+			$password = encryptingUserPassword( $password );
 			$db = new dbClass($emailId , $password);
 			db.login()
 
