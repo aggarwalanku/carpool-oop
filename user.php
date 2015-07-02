@@ -77,7 +77,7 @@
 		public function getUserInformation( $UserId)
 		{
 			$db = new db;
-			$db.($UserId);
+			return $db.queryUserInformation($UserId);
 		}
 	}
 ?>	
