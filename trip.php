@@ -17,14 +17,17 @@
 			$this->numberOfSeats = $numberOfSeats;
 			$this->carModel = $carModel;
 		}
-		public function addTrip(){
+		public function addTrip($userId){
+			$db = new Database;
+			$ticketId = hash('sha256', $userId);
+			
 
 		}
-		public function getUserId(){
+		private function getUserId(){
 
 		}
 	}
 
-	$_sessionstart()
+	session_start()
 	$t = new trip($_POST['source'] , $_POST['destination'] , '' , $_POST['fare'] , $_POST['numberOfSeats'] , $_POST['carModel']);
 	$t.addTrip();

@@ -53,8 +53,11 @@
 		public function setrating( $rating ){
 			$this->rating = $rating;
 		}
-		public function getUserId(){
-			return $this->userId;
+		public function getUserId($userId = ''){
+			if($userId == '')
+				return hash('sha256',$this->emailId);
+			else
+				return hash('sha256',$emailId);
 		}
 		public function setemailId( $emailId ){
 			$this->emailId = $emailId;
@@ -64,12 +67,14 @@
 		}
 		public function login( $emailId = '' , $password = ''){
 			$password = encryptingUserPassword( $password );
-			$db = new dbClass($emailId , $password);
+			$db = new db($emailId , $password);
 			db.login()
 
 		}
 		public function signin(){
-
+			$userId = getUserId($userId);
+			$db = new db;
+			$db.registerUser()
 		}
 		public function logout(){
 			redirect('login.php');
@@ -78,6 +83,14 @@
 		{
 			$db = new db;
 			return $db.queryUserInformation($UserId);
+		}
+		public function checkValidity($emailId,$password){
+			$db = new db;
+			$password = encryptingUserPassword($password);
+			if($db.getUserInformation($emailId,$password))
+				return True;
+			else
+				return False;
 		}
 	}
 ?>	
