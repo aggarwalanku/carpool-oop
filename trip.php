@@ -31,3 +31,4 @@
 	session_start()
 	$t = new trip($_POST['source'] , $_POST['destination'] , '' , $_POST['fare'] , $_POST['numberOfSeats'] , $_POST['carModel']);
 	$t.addTrip();
+	?>
